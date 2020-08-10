@@ -56,7 +56,6 @@ def parse_args():
     parser.add_argument("-m", "--model", required=True, help="path to TensorFlow Lite object detection model")
     parser.add_argument("-l", "--labels", required=True, help="path to labels file")
     parser.add_argument("-i", "--input", default=0, type=str, help="path to optional input video file")
-    parser.add_argument("-o", "--output", type=str, help="path to optional output video file")
     parser.add_argument("-c", "--threshold", type=float, default=0.4, help="minimum probability to filter weak detection")
     parser.add_argument("-r", "--resize", type=str, default="1080,640", help="Resizing the input frame")
     parser.add_argument("-rec", "--record", type=str, default=None, help="option for recording results")
