@@ -1,7 +1,3 @@
-"""
-As implemented in https://github.com/abewley/sort but with some modifications
-"""
-
 import numpy as np
 from filterpy.kalman import KalmanFilter
 

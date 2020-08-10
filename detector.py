@@ -1,22 +1,7 @@
-"""
-@author: Mahmoud I.Zidan
-"""
-'''
-its purpose is to get the ground truth detection positions per frame.
-specifically for Oxford TownCentre dataset
-(http://www.robots.ox.ac.uk/~lav/Research/Projects/2009bbenfold_headpose/project.html)
-
-Data format:
-personNumber, frameNumber, headValid, bodyValid, headLeft, headTop, headRight, headBottom, bodyLeft, bodyTop, bodyRight, bodyBottom
-
-Note: we ignore using/tracking head detection data
-'''
-
 import tensorflow as tf
 import numpy as np
 import platform
 import time
-import detect_tf
 from PIL import Image
 from utils import label_map_util
 

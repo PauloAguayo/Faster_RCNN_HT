@@ -1,14 +1,3 @@
-"""
-As implemented in https://github.com/abewley/sort but with some modifications
-
-For each detected item, it computes the intersection over union (IOU) w.r.t. each tracked object. (IOU matrix)
-Then, it applies the Hungarian algorithm (via linear_assignment) to assign each det. item to the best possible
-tracked item (i.e. to the one with max. IOU).
-
-Note: a more recent approach uses a Deep Association Metric instead.
-see https://github.com/nwojke/deep_sort
-"""
-
 import numpy as np
 from numba import jit
 from sklearn.utils.linear_assignment_ import linear_assignment
