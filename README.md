@@ -38,4 +38,4 @@ $ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelma
 # Agradecimientos
 - https://github.com/ZidanMusk/experimenting-with-sort
 - https://github.com/tensorflow/models
-- https://github.com/tzutalin/labelImg
+- https://ffmpeg.org/
