@@ -33,7 +33,7 @@ El programa posee 6 variables parser, de las cuales sólo 3 son obligatorias. Se
 - '-rec' (opcional): Ruta, nombre y formato del video de salida.
 
 # Ejemplo
-python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i GOPRO.mp4
+$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i GOPRO.mp4
 
 # Agradecimientos
 - https://github.com/ZidanMusk/experimenting-with-sort
