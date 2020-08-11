@@ -7,7 +7,7 @@ La gestión de detecciones se realizó con una red personalizada entrenada en Te
 La red utilizada es análoga al repositorio https://github.com/PauloAguayo/DensidadDePasajerosMovilidadReducida . La diferencia con este 
 trabajo es que sólo se destinaron detecciones de cabezas. Por esta razón, las bases de datos utilizadas son iguales.
 
-En la carpeta Faster_RCNN se encuentran tanto el modelo .pb, como las etiquetas .pbtxt.
+En la carpeta Faster_RCNN se encuentran tanto el modelo ".pb", como las etiquetas ".pbtxt".
 
 En la carpeta "Results" se pueden encontrar resultados del desempeño del código.
 
@@ -29,8 +29,7 @@ El programa posee 6 variables parser, de las cuales sólo 3 son obligatorias. Se
 - '-l' (obligatoria): Ruta y nombre de las etiquetas o labels ".pbtxt".
 - '-i' (obligatoria): Ruta y nombre del video.
 - '-c' (opcional): Mínima probabilidad de detección. Default = 0.4.
-- '-r' (opcional): Re-dimensionamiento de frames. Default=1080,640. Se debe seguir la misma estructura que 
-Default en caso de querer cambiar el tamaño.
+- '-r' (opcional): Re-dimensionamiento de frames. Default=1080,640. Se debe seguir la misma estructura que en Default en caso de querer cambiar el tamaño.
 - '-rec' (opcional): Ruta, nombre y formato del video de salida.
 
 # Ejemplo
