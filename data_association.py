@@ -19,7 +19,7 @@ def iou(bb_test,bb_gt):
     + (bb_gt[2]-bb_gt[0])*(bb_gt[3]-bb_gt[1]) - wh)
   return(o)
 
-def associate_detections_to_trackers(detections,trackers,iou_threshold = 0.01):
+def associate_detections_to_trackers(detections,trackers,iou_threshold = 0.4): #iou_threshold = 0.01
   """
   Assigns detections to tracked object (both represented as bounding boxes)
 
