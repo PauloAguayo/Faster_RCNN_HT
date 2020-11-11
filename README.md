@@ -40,10 +40,16 @@ The program holds 11 parser variables, which only 2 are required. This are:
 - '-lim' (optional): Variable to warn about an overcrowding. Default = 5 (people).
 
 # Instructions
-Once you enter the parser variables (like in example), the program will require you to select the area to be measured through points, like a polygon. Those are 3 as a minimum. 
+Once you enter the parser variables (like in example), the program will require you to select the area to be measured through points, like a polygon. Those are 3 as a minimum. by secuence. So the order is important.  
+For each point you want to select, you must doble click and the press "a".  
+In case you get wrong, only press "r" and all your selected points will not be considered.  
+To move on, press "esc".  
 ![](pics/pic1.jpg)
 
-Next, 
+Next, the program will ask if you know polygon's area. If you do, press "y" and then enter the value in square meters. If you don't, press "n" and then select an area in the frame as reference for a square meter.  
+
+Finally, the program will be running.  
+![](pics/pic2.jpg)
 
 # Example
 $ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i Videos/GOPRO.mp4
