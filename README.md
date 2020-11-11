@@ -49,7 +49,7 @@ To move on, press "esc".
 Next, the program will ask if you know polygon's area. If you do, press "y" and then enter the value in square meters. If you don't, press "n" and then select an area in the frame as reference for a square meter.  
 
 Finally, the program will be running.  
-![](pics/pic2.jpg)
+![](pics/pic2.JPG)
 
 # Example
 $ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i Videos/GOPRO.mp4
