@@ -41,12 +41,12 @@ The program holds 11 parser variables, which only 2 are required. This are:
 
 # Instructions
 Once you enter the parser variables (like in example), the program will require you to select the area to be measured through points, like a polygon. Those are 3 as a minimum. 
-![alt text](https://github.com/PauloAguayo/Faster_RCNN_HT/blob/pics/pic1.jpg?raw=true)
+![](pics/pic1.jpg)
 
 Next, 
 
 # Example
-$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i Videos/GOPRO.mp4 -g 
+$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i Videos/GOPRO.mp4
 
 # Acknowledgments
 - https://github.com/ZidanMusk/experimenting-with-sort
