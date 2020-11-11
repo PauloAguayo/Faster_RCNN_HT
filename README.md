@@ -8,7 +8,7 @@ The network is the same as https://github.com/PauloAguayo/DensidadDePasajerosMov
 
 In folder "Faster_RCNN" you can find the model ".pb" and the labels ".pbtxt".
 
-The code allows you to see the detections through the screen, and in parallel, it writes a "csv" file with timestamp, frames, density and different kind of detections, like current detections, total detections and new detections; beside, it can show online charts related to current detections; and finally, it can make recordings of both process in only one frame.
+The code allows you to see the detections through the screen, and in parallel, it writes a "csv" file with timestamps, frames, density and different kind of detections, like current detections, total detections and new detections; beside, it can show online charts related to current detections; and finally, it can make recordings of both process in only one frame.
 
 In folder "Results" can be found the results of the algorithm, like videos and/or csv files.
 
@@ -38,6 +38,12 @@ The program holds 11 parser variables, which only 2 are required. This are:
 - '-rec' (optional): Route, name and output video format.
 - '-cal' (optional): Action variable. Option for un-distort images, like fisheye lens.
 - '-lim' (optional): Variable to warn about an overcrowding. Default = 5 (people).
+
+# Instructions
+Once you enter the parser variables (like in example), the program will require you to select the area to be measured through points, like a polygon. Those are 3 as a minimum. 
+
+
+Next, 
 
 # Example
 $ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i GOPRO.mp4 -g 
