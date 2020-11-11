@@ -46,9 +46,9 @@ In case you get wrong, only press "r" and all your selected points will not be c
 To move on, press "esc".  
 ![](pics/pic1.jpg)
 
-Next, the program will ask if you know polygon's area. If you do, press "y" and then enter the value in square meters. If you don't, press "n" and then select an area in the frame as reference for a square meter.  
+Next, the program will ask if you know polygon's area. If you do, press "y" and then enter the value in square meters. If you don't, press "n" and then select an area in the frame as reference for a square meter, pressing "a". Finally, press "esc"  
 
-Finally, the program will be running.  
+Now, the program will be running.  
 ![](pics/pic2.JPG)
 
 # Example
