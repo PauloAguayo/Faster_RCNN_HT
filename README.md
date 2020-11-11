@@ -1,19 +1,19 @@
 # Faster_RCNN_HT
-En el presente trabajo se trató la detección y tracking de cabezas de personas en condiciones no ideales, tales como medios de transportes públicos.
+In this work we dealead with detection and tracking of human heads under non-ideal conditions, like public transportation.
 
-El algoritmo de tracking se ejecutó con el manejo de Kalman y linear assignment (algoritmo húngaro).
-La gestión de detecciones se realizó con una red personalizada entrenada en Tensorflow. Se implementó Faster RCNN con inceptionV2.
+The tracking algorithm was executed with Kalman and linear assignment (hungarian algorithm).
+The management of detections was realized with a trained network by Tensorflow. It was implemented by Faster RCNN with InceptionV2
 
-La red utilizada es análoga al repositorio https://github.com/PauloAguayo/DensidadDePasajerosMovilidadReducida . La diferencia con este trabajo es que sólo se destinaron detecciones de cabezas. Por esta razón, las bases de datos utilizadas son iguales.
+The network is the same as https://github.com/PauloAguayo/DensidadDePasajerosMovilidadReducida . The only difference with this job is that we only use head detection. For this reason, the database is the same.
 
-En la carpeta Faster_RCNN se encuentran tanto el modelo ".pb", como las etiquetas ".pbtxt".
+In folder "Faster_RCNN" you can find the model ".pb" and the labels ".pbtxt".
 
-El programa se encarga de gestionar las detecciones de cabezas desplegándolas en pantalla, y en paralelo escribe un archivo 'csv' con datos temporales, frames y detecciones (nuevas, actuales, totales); además, puede mostrar gráficos en línea relacionados a las detecciones actuales y nuevas; y por último, puede realizar grabaciones de ambos procesos en un solo frame.
+The code allows you to see the detections through the screen, and in parallel, it writes a "csv" file with timestamp, frames, density and different kind of detections, like current detections, total detections and new detections; beside, it can show online charts related to current detections; and finally, it can make recordings of both process in only one frame.
 
-En la carpeta "Results" se pueden encontrar resultados del desempeño del código, ya sea videos o archivos csv.
+In folder "Results" can be found the results of the algorithm, like videos and/or csv files.
 
-# Instalación
-Se debe generar un ambiente virtual con las siguientes librerías:
+# Install
+A virtual environment must be created with the next libraries:
 
 - Python >=3.0
 - Tensorflow 1.14
@@ -25,22 +25,26 @@ Se debe generar un ambiente virtual con las siguientes librerías:
 - Matplotlib
 
 # Parser
-El programa posee 6 variables parser, de las cuales sólo 3 son obligatorias. Se describen a continuación:
+The program holds 11 parser variables, which only 2 are required. This are:
 
-- '-m' (obligatoria): Ruta y nombre del modelo ".pb".
-- '-l' (obligatoria): Ruta y nombre de las etiquetas o labels ".pbtxt".
-- '-i' (obligatoria): Ruta y nombre del video.
-- '-c' (opcional): Mínima probabilidad de detección. Default = 0.75.
-- '-r' (opcional): Re-dimensionamiento de frames. Default=1080,640. Se debe seguir la misma estructura que en Default en caso de querer cambiar el tamaño.
-- '-s' (opcional): Variable de acción. Activa un contador de detecciones totales en la pantalla.
-- '-g' (opcional): Variable de acción. Activa los gráficos en línea de detecciones "actuales" y "nuevas".
-- '-w' (opcional): Ventana temporal (en segundos) para el manejo de datos en los gráficos. Default=300.
-- '-rec' (opcional): Ruta, nombre y formato del video de salida.
+- '-m' (required): Route and model ".pb".
+- '-l' (required): Route and labels name ".pbtxt".
+- '-i' (optional): Route and video name. Otherwise, it will turn the camera on.
+- '-c' (optional): Confidence for detection. Default = 0.75.
+- '-r' (optional): Resize of frames. Default=1080,640. The same structure procedure as Default must be followed.
+- '-s' (optional): Action variable. A total detection counter gets on the screen.
+- '-g' (optional): Action variable. It activates the online charts about current detections.
+- '-w' (optional): Temporary window for the data flow in charts. Default=300.
+- '-rec' (optional): Route, name and output video format.
+- '-cal' (optional): Action variable. Option for un-distort images, like fisheye lens.
+- '-lim' (optional): Variable to warn about an overcrowding. Default = 5 (people).
 
-# Ejemplo
-$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i GOPRO.mp4 -s -g
+# Example
+$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i GOPRO.mp4 -g 
 
-# Agradecimientos
+# Acknowledgments
 - https://github.com/ZidanMusk/experimenting-with-sort
 - https://github.com/tensorflow/models
 - https://ffmpeg.org/
+- https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-part-2-13990f1b157f
+- https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0
