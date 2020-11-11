@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import time
 
 class Real_time(object):
 

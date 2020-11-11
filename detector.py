@@ -1,8 +1,5 @@
 import tensorflow as tf
 import numpy as np
-import platform
-import time
-from PIL import Image
 from utils import label_map_util
 
 class GroundTruthDetections:
