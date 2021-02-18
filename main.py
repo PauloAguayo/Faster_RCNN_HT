@@ -94,7 +94,7 @@ def main():
                     cv2.rectangle(frame, (int(d[1]), int(d[0])), (int(d[3]), int(d[2])), (0, 255,0),0)
                     text = "ID "+str(int(d[4]))
                     cv2.putText(frame, text, (int(d[1]) , int(d[0])-5), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1)
-                    cv2.circle(frame,(ideal_point[1],ideal_point[0]),4,(255,255,0),-1)
+                    #cv2.circle(frame,(ideal_point[1],ideal_point[0]),4,(255,255,0),-1)
                     if int(d[4]) not in total_ids:
                         total_ids.append(int(d[4]))
                         new_detections+=1

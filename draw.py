@@ -7,17 +7,18 @@ class Drawing(object):
         self.shape = shape  # x,y
         self.max_length = np.maximum(self.shape[0],self.shape[1])
         self.min_length = np.minimum(self.shape[0],self.shape[1])
-        self.image_center = np.array([int(self.shape[0]/2),int(self.shape[1])]) # x,y
-        #self.image_center = np.array([int(self.shape[0]/2),int(self.shape[1]/2)]) # x,y
-#        self.image_center = np.array([int(self.shape[0]/2),int(self.shape[1]*0.8)]) # x,y
-        #self.image_center = np.array([int(self.shape[0]/2),int(self.shape[1]*0.35)]) # x,y
+        self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1])]) # x,y
+        self.image_center = np.array([int(self.shape[0]/2),int(self.shape[1]/2)]) # x,y
+        #self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1]/2)]) # x,y
+#        self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1]*0.8)]) # x,y
+        #self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1]*0.35)]) # x,y
 
     def Draw_detections(self,frame,centroid_box,length_box,H=2.5,h=1.7):
         #gamma = np.linalg.norm(polygon_centroid-centroid_box)
-        gamma = np.linalg.norm(centroid_box-self.image_center) # pixels distance
+        gamma = np.linalg.norm(centroid_box-self.image_bottom) # pixels distance
         # pixels distance
-        #gamma_y_pixels = abs(self.image_center[1]-centroid_box[1])
-        #gamma_x_pixels = abs(self.image_center[0]-centroid_box[0])
+        #gamma_y_pixels = abs(self.image_bottom[1]-centroid_box[1])
+        #gamma_x_pixels = abs(self.image_bottom[0]-centroid_box[0])
                 #gamma *= ((np.pi/4)/(self.min_length/2))
 #        gamma *= ((np.pi/4)/(self.max_length/2))
         gamma *= ((np.pi/4)/(self.max_length))
@@ -29,7 +30,7 @@ class Drawing(object):
         d1 = d1_prima - np.tan(gamma)*h
         alpha = np.arctan(d1/H)
         beta = abs(gamma) - abs(alpha)
-        slope = (centroid_box[1]-self.image_center[1])/(centroid_box[0]-self.image_center[0])
+        slope = (centroid_box[1]-self.image_bottom[1])/(centroid_box[0]-self.image_bottom[0])
         if abs(slope)>=1:
             distance_box = length_box[0]
             d = 1
@@ -38,39 +39,39 @@ class Drawing(object):
             d = 0
         x_param = 2*centroid_box[0]/self.shape[0]-1
         y_param = 2*centroid_box[1]/self.shape[1]-1
-        #y_param = centroid_box[1]/self.image_center[1]-1
+        #y_param = centroid_box[1]/self.image_bottom[1]-1
         y_axis = []
 
         if x_param>=0 and y_param>=0: # 4th
             if d==0:
-                x_axis = np.arange(self.image_center[0],centroid_box[0]+1)
+                x_axis = np.arange(self.image_bottom[0],centroid_box[0]+1)
                 if slope >1: slope = abs(slope) - abs(int(slope))
             else:
-                x_axis = np.arange(self.image_center[1],centroid_box[1]+1)
+                x_axis = np.arange(self.image_bottom[1],centroid_box[1]+1)
                 if slope <1: slope+=1
             x_axis = x_axis[::-1]
         elif x_param<0 and y_param>=0:  # 3rd
             if d==0:
-                x_axis = np.arange(centroid_box[0],self.image_center[0]+1)                            #    2  |  1
+                x_axis = np.arange(centroid_box[0],self.image_bottom[0]+1)                            #    2  |  1
                 if abs(slope) >1: slope = (-1)*(abs(slope) - abs(int(slope)))                         #  _____|_____
             else:                                                                                     #   3   |  4      quadrants
-                x_axis = np.arange(self.image_center[1],centroid_box[1]+1)                            #       |
+                x_axis = np.arange(self.image_bottom[1],centroid_box[1]+1)                            #       |
                 x_axis = x_axis[::-1]
                 if abs(slope)<1: slope-=1
         elif x_param>=0 and y_param<0:   # 1st
             if d==0:
-                x_axis = np.arange(self.image_center[0],centroid_box[0]+1)
+                x_axis = np.arange(self.image_bottom[0],centroid_box[0]+1)
                 if abs(slope) >1: slope = (-1)*(abs(slope) - abs(int(slope)))
                 x_axis = x_axis[::-1]
             else:
-                x_axis = np.arange(centroid_box[1],self.image_center[1]+1)
+                x_axis = np.arange(centroid_box[1],self.image_bottom[1]+1)
                 if abs(slope) <1: slope-=1
         elif x_param<0 and y_param<0:    # 2nd
             if d==0:
-                x_axis = np.arange(centroid_box[0],self.image_center[0]+1)
+                x_axis = np.arange(centroid_box[0],self.image_bottom[0]+1)
                 if slope >1: slope = slope - int(slope)
             else:
-                x_axis = np.arange(centroid_box[1],self.image_center[1]+1)
+                x_axis = np.arange(centroid_box[1],self.image_bottom[1]+1)
                 if slope <1: slope+=1
 
         if d == 0:
@@ -100,13 +101,13 @@ class Drawing(object):
         # optimization points
         lim = 0
         #if x_param<0 and y_param<0:
-            #beta_radians = abs(np.arctan((centroid_box[1]-self.image_center[1])/(centroid_box[0]-self.image_center[0]))-np.pi/2)
-        #    beta_radians = np.arctan((centroid_box[1]-self.image_center[1])/(centroid_box[0]-self.image_center[0]))
+            #beta_radians = abs(np.arctan((centroid_box[1]-self.image_bottom[1])/(centroid_box[0]-self.image_bottom[0]))-np.pi/2)
+        #    beta_radians = np.arctan((centroid_box[1]-self.image_bottom[1])/(centroid_box[0]-self.image_bottom[0]))
         #    print(beta_radians)
         #    beta_x_pixels = beta*np.sin(beta_radians)
         #    beta_y_pixels = beta*np.cos(beta_radians)
         #else:
-        #    beta_radians = abs(np.arctan((centroid_box[1]-self.image_center[1])/(centroid_box[0]-self.image_center[0])))-np.pi/2
+        #    beta_radians = abs(np.arctan((centroid_box[1]-self.image_bottom[1])/(centroid_box[0]-self.image_bottom[0])))-np.pi/2
         #    beta_x_pixels = beta*np.cos(beta_radians)
         #    beta_y_pixels = beta*np.sin(beta_radians)
         #beta_x = beta_x_pixels*((self.max_length/2)/(np.pi/3))
@@ -117,10 +118,10 @@ class Drawing(object):
         for x_p,y_row in zip(x_axis,y_axis):
             for y_p in y_row:
                 if d == 0:
-                    center2Coord = float(np.linalg.norm(np.array([x_p,y_p])-self.image_center))
+                    center2Coord = float(np.linalg.norm(np.array([x_p,y_p])-self.image_bottom))
                     #cv2.circle(frame,(x_p,y_p),1,(255,255,0),-1)
                 else:
-                    center2Coord = float(np.linalg.norm(np.array([y_p,x_p])-self.image_center))
+                    center2Coord = float(np.linalg.norm(np.array([y_p,x_p])-self.image_bottom))
                     #cv2.circle(frame,(y_p,x_p),1,(255,255,0),-1)
                 if float(center2Coord)<=abs(beta):
                     if center2Coord>int(lim):
@@ -169,6 +170,23 @@ class Drawing(object):
                 points = []
                 point_counter = 0
         cv2.destroyAllWindows()
+
+        x_plus = self.image_center[1]*0.05
+        y_plus = self.image_center[0]*0.05
+        for en,point in enumerate(points):
+            if point[0]<=self.image_center[1] and point[1]<=self.image_center[0]: # 2nd quadrant
+                points[en][0] = int(point[0] - x_plus)
+                points[en][1] = int(point[1] - y_plus)
+            elif point[0]<=self.image_center[1] and point[1]>self.image_center[0]: # 3rd quadrant
+                points[en][0] = int(point[0] - x_plus)
+                points[en][1] = int(point[1] + y_plus)
+            elif point[0]>self.image_center[1] and point[1]>self.image_center[0]: # 4th quadrant
+                points[en][0] = int(point[0] + x_plus)
+                points[en][1] = int(point[1] + y_plus)
+            else:
+                points[en][0] = int(point[0] + x_plus)
+                points[en][1] = int(point[1] - y_plus)
+
         return(points)
 
     def Square_meter(self,frame):
