@@ -55,7 +55,7 @@ Now, the program will be running.
 ![](pics/pic2.JPG)
 
 # Example
-$ python main.py -m Faster_RCNN/frozen_inference_graph.pb -l Faster_RCNN/labelmap.pbtxt  -i Videos/GOPRO.mp4
+$ python main.py -m model/frozen_inference_graph.pb -l model/labelmap.pbtxt  -i Videos/GOPRO.mp4
 
 # Acknowledgments
 - https://github.com/ZidanMusk/experimenting-with-sort
