@@ -13,7 +13,7 @@ class Drawing(object):
 #        self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1]*0.8)]) # x,y
         #self.image_bottom = np.array([int(self.shape[0]/2),int(self.shape[1]*0.35)]) # x,y
 
-    def Draw_detections(self,frame,centroid_box,length_box,H=2.5,h=1.7):
+    def Draw_detections(self,frame,centroid_box,length_box,H,h):
         #gamma = np.linalg.norm(polygon_centroid-centroid_box)
         gamma = np.linalg.norm(centroid_box-self.image_bottom) # pixels distance
         # pixels distance

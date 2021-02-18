@@ -35,6 +35,9 @@ def main():
             csv_name = args["record"].split('.')[0]+"_"+csv_name
             save_video = Record_video("Results/"+args["record"], resized, args["chart"])
 
+    people_height = args["people-height"]
+    camera_height = args["camera-height"]
+
     start_time = time.time()
     fields = ['Time','Frame','New_detections','Current_detections','Total_detections','Density (people/m2)']
     draws = Drawing(resized) ##################################################3
@@ -88,7 +91,7 @@ def main():
             for d in trackers:
                 centroid_box = np.array([int(d[1]+(d[3]-d[1])/2),int(d[0]+(d[2]-d[0])/2)]) # x,y
                 length_box = np.array([d[3]-d[1],d[2]-d[0]])
-                ideal_point = draws.Draw_detections(frame,centroid_box,length_box)
+                ideal_point = draws.Draw_detections(frame,centroid_box,length_box,camera_height,people_height)
                 point = geometry.Point(ideal_point[1],ideal_point[0])
                 if poly.contains(point):
                     cv2.rectangle(frame, (int(d[1]), int(d[0])), (int(d[3]), int(d[2])), (0, 255,0),0)
@@ -140,6 +143,8 @@ def parse_args():
     parser.add_argument("-s", "--show", action="store_true", help="Show people counter")
     parser.add_argument("-g", "--chart", action="store_true", help="Show online chart in video")
     parser.add_argument("-w", "--window", type=int, default=300, help="Time window")
+    parser.add_argument("-H", "--camera-height", type=float, default=2.5, help="z-coordinate for camera positioning")
+    parser.add_argument("-p", "--people-height", type=float, default=1.7, help="z-coordinate for people high")
     parser.add_argument("-rec", "--record", type=str, default=None, help="Option for recording results")
     parser.add_argument("-cal", "--calibration", action="store_true", help="Option for un-distort input image")
     parser.add_argument("-lim", "--limit", type=float, default=5, help="Limit warning")
