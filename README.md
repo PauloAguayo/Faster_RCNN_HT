@@ -1,12 +1,12 @@
 # Faster_RCNN_HT
 In this work we dealead with detection and tracking of human heads under non-ideal conditions, like public transportation.
 
-The tracking algorithm was executed with Kalman and linear assignment (hungarian algorithm).
-The management of detections was realized with a trained network by Tensorflow. It was implemented by Faster RCNN with InceptionV2
+The tracking algorithm was executed with Kalman algorithm and linear assignment (hungarian algorithm).
+The management of detections was realized with a trained network by Tensorflow. It was implemented by Faster RCNN with InceptionV2.
 
 The network is the same as https://github.com/PauloAguayo/DensidadDePasajerosMovilidadReducida . The only difference with this job is that we only use head detection. For this reason, the database is the same.
 
-In folder "Faster_RCNN" you can find the model ".pb" and the labels ".pbtxt".
+In folder "model" you can find the model ".pb" and the labels ".pbtxt".
 
 The code allows you to see the detections through the screen, and in parallel, it writes a "csv" file with timestamps, frames, density and different kind of detections, like current detections, total detections and new detections; beside, it can show online charts related to current detections; and finally, it can make recordings of both process in only one frame.
 
@@ -23,6 +23,7 @@ A virtual environment must be created with the next libraries:
 - Numba
 - scikit-learn==0.22.2
 - Matplotlib
+- Shapely
 
 # Parser
 The program holds 11 parser variables, which only 2 are required. This are:
@@ -35,13 +36,15 @@ The program holds 11 parser variables, which only 2 are required. This are:
 - '-s' (optional): Action variable. A total detection counter gets on the screen.
 - '-g' (optional): Action variable. It activates the online charts about current detections.
 - '-w' (optional): Temporary window for the data flow in charts. Default=300.
+- '-H' (optional): z-coordinate for camera positioning. Default = 2.5 (meters).
+- '-p' (optional): z-coordinate for people height. Default = 1.7 (meters).
 - '-rec' (optional): Route, name and output video format.
 - '-cal' (optional): Action variable. Option for un-distort images, like fisheye lens.
 - '-lim' (optional): Variable to warn about an overcrowding. Default = 5 (people).
 
 # Instructions
 Once you enter the parser variables (like in example), the program will require you to select the area to be measured through points, like a polygon. Those are 3 as a minimum. by secuence. So the order is important.  
-For each point you want to select, you must doble click and the press "a".  
+For each point you want to select, you must doble click and then press "a".  
 In case you get wrong, only press "r" and all your selected points will not be considered.  
 To move on, press "esc".  
 ![](pics/pic1.jpg)
