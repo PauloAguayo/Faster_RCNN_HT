@@ -144,7 +144,7 @@ def parse_args():
     parser.add_argument("-g", "--chart", action="store_true", help="Show online chart in video")
     parser.add_argument("-w", "--window", type=int, default=300, help="Time window")
     parser.add_argument("-H", "--camera-height", type=float, default=2.5, help="z-coordinate for camera positioning")
-    parser.add_argument("-p", "--people-height", type=float, default=1.7, help="z-coordinate for people high")
+    parser.add_argument("-p", "--people-height", type=float, default=1.7, help="z-coordinate for people height")
     parser.add_argument("-rec", "--record", type=str, default=None, help="Option for recording results")
     parser.add_argument("-cal", "--calibration", action="store_true", help="Option for un-distort input image")
     parser.add_argument("-lim", "--limit", type=float, default=5, help="Limit warning")
