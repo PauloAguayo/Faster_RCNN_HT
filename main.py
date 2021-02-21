@@ -114,7 +114,7 @@ def main():
             row = ["%s" % (clock),str(frames),str(new_detections),str(current_detections),str(total_detections),str(density)]
             csv_writer.writerow(row)
 
-            cv2.putText(frame, 'Density = '+str(round(density,3))+' people/(m2)', (int(resized[0]*0.1) , resized[1]-30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+            cv2.putText(frame, 'Density = '+str(round(density,3))+' passengers/(m2)', (int(resized[0]*0.1) , resized[1]-30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
             if args["limit"]<current_detections:
                 cv2.putText(frame, 'Platform overcrowded!', (600,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255),2) ################ arreglar las coordenadas
