@@ -35,8 +35,8 @@ def main():
             csv_name = args["record"].split('.')[0]+"_"+csv_name
             save_video = Record_video("Results/"+args["record"], resized, args["chart"])
 
-    people_height = args["people-height"]
-    camera_height = args["camera-height"]
+    people_height = args["people_height"]
+    camera_height = args["camera_height"]
 
     start_time = time.time()
     fields = ['Time','Frame','New_detections','Current_detections','Total_detections','Density (people/m2)']
@@ -143,8 +143,8 @@ def parse_args():
     parser.add_argument("-s", "--show", action="store_true", help="Show people counter")
     parser.add_argument("-g", "--chart", action="store_true", help="Show online chart in video")
     parser.add_argument("-w", "--window", type=int, default=300, help="Time window")
-    parser.add_argument("-H", "--camera-height", type=float, default=2.5, help="z-coordinate for camera positioning")
-    parser.add_argument("-p", "--people-height", type=float, default=1.7, help="z-coordinate for people height")
+    parser.add_argument("-H", "--camera_height", type=float, default=2.5, help="z-coordinate for camera positioning")
+    parser.add_argument("-p", "--people_height", type=float, default=1.7, help="z-coordinate for people height")
     parser.add_argument("-rec", "--record", type=str, default=None, help="Option for recording results")
     parser.add_argument("-cal", "--calibration", action="store_true", help="Option for un-distort input image")
     parser.add_argument("-lim", "--limit", type=float, default=5, help="Limit warning")
