@@ -63,3 +63,4 @@ $ python main.py -m model/frozen_inference_graph.pb -l model/labelmap.pbtxt  -i 
 - https://ffmpeg.org/
 - https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-part-2-13990f1b157f
 - https://medium.com/@kennethjiang/calibrate-fisheye-lens-using-opencv-333b05afa0b0
+- https://projectgo.pro/es/gopro-fov/
